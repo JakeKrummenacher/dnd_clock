@@ -131,6 +131,16 @@
         .date-boxes{
             margin-left:10px; margin-right:10px;
         }
+        .input-unit {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            max-width:40px;
+            width: max-content;
+            font-family:cinzel decorative bold;
+            border: none;
+            text-align: center;
+        }
         
     </style>
 </head>
@@ -153,7 +163,10 @@
                             </button>
                         </form>
                         <div class="box">
-                            <h3>{{trackers[i]['max']}}</h3>
+                            <form action="/custom_max" method="post" class="input-unit">
+                                <input type="hidden" value="{{trackers[i]['id']}}" name="tracker_id">
+                                <input type="text" value="{{trackers[i]['max']}}" name="max" class="input-unit">
+                            </form>
                         </div>
                         <form action="/remove_max" method="post">
                             <input type="hidden" name="tracker_id" value="{{trackers[i]['id']}}">
@@ -184,7 +197,10 @@
                                 </button>
                             </form>
                             <div class="box">
-                                <h3>{{trackers[i]['unit_amount']}}</h3>
+                                <form action="/custom_unit" method="post" class="input-unit">
+                                    <input type="hidden" value="{{trackers[i]['id']}}" name="tracker_id">
+                                    <input type="text" value="{{trackers[i]['unit_amount']}}" name="unit_amount" class="input-unit">
+                                </form>
                             </div>
                             <form action="/remove_unit" method="post">
                                 <input type="hidden" name="tracker_id" value="{{trackers[i]['id']}}">
@@ -206,7 +222,10 @@
                                 </button>
                             </form>
                             <div class="box">
-                                <h3>{{trackers[i]['cost']}}</h3>
+                                <form action="/custom_cost" method="post" class="input-unit">
+                                    <input type="hidden" value="{{trackers[i]['id']}}" name="tracker_id">
+                                    <input type="text" value="{{trackers[i]['cost']}}" name="cost" class="input-unit">
+                                </form>
                             </div>
                             <form action="/remove_cost" method="post">
                                 <input type="hidden" name="tracker_id" value="{{trackers[i]['id']}}">

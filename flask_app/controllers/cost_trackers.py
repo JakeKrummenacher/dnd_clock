@@ -21,6 +21,7 @@ def add_max():
     Cost_Tracker.update_max(new_data)
     return redirect('/')
 
+
 @app.route('/remove_max', methods=['POST'])
 def remove_max():
     data = {
@@ -34,6 +35,15 @@ def remove_max():
         "max": current_max
     }
     Cost_Tracker.update_max(new_data)
+    return redirect('/')
+
+@app.route('/custom_max', methods=['POST'])
+def custom_max():
+    data = {
+        "id": request.form['tracker_id'],
+        "max": request.form['max']
+    }
+    Cost_Tracker.update_max(data)
     return redirect('/')
 
 @app.route('/add_unit', methods = ['POST'])
@@ -66,6 +76,15 @@ def remove_unit():
     Cost_Tracker.update_unit_amount(new_data)
     return redirect('/')
 
+@app.route('/custom_unit', methods=['POST'])
+def custom_unit():
+    data = {
+        "id": request.form['tracker_id'],
+        "unit_amount": request.form['unit_amount']
+    }
+    Cost_Tracker.update_unit_amount(data)
+    return redirect('/')
+
 @app.route('/add_cost', methods=['POST'])
 def add_cost():
     data = {
@@ -94,6 +113,15 @@ def remove_cost():
         "cost": current_cost
     }
     Cost_Tracker.update_cost(new_data)
+    return redirect('/')
+
+@app.route('/custom_cost', methods=['POST'])
+def custom_cost():
+    data = {
+        "id": request.form['tracker_id'],
+        "cost": request.form['cost']
+    }
+    Cost_Tracker.update_cost(data)
     return redirect('/')
 
 @app.route('/remove_tracker', methods=['POST'])
