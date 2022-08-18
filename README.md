@@ -1,1 +1,1 @@
-#dnd_project
+A flask application that allows a Dungeons and Dragons player to keep track of things like the date and time of the world, as well as certain objective concepts of the game such as provisions, health, and many more.
